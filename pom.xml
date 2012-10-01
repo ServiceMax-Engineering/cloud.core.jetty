@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <parent>
-      <groupId>com.intalio.tycho.cloud2</groupId>
-      <artifactId>tycho-cloud2-parent</artifactId>
-      <version>1</version>
-      <relativePath>../tycho-cloud2-parent/pom.xml</relativePath>
-    </parent>
     <groupId>com.intalio.cloud.core</groupId>
     <artifactId>jetty-bundles</artifactId>
     <version>1.0.0-SNAPSHOT</version>
@@ -27,26 +21,38 @@
     </modules>
 
     <properties>
-        <jetty-version>8.1.7.v20120910</jetty-version>
+      <jetty-version>8.1.7.v20120910</jetty-version>
+      <tycho-version>0.15.0</tycho-version>
+      <tycho-extras-version>0.15.0</tycho-extras-version>
     </properties>
 
 	<repositories>
-	   <repository>
-	      <id>intalio-nexus</id>
-	      <url>http://release.intalio.com:9082/nexus/content/groups/public</url>
-	   </repository>
-
-       <repository>
-          <id>eclipse-orbit</id>
-          <url>http://download.eclipse.org/tools/orbit/downloads/drops/S20120917013952/repository</url>
-       </repository>
-
-       <repository>
-          <id>eclipse</id>
-          <url>http://download.eclipse.org/eclipse/updates/3.8/R-3.8.1-201209141540</url>
-       </repository>
-
+   <repository>
+      <id>eclipse-orbit</id>
+      <url>http://download.eclipse.org/tools/orbit/downloads/drops/S20120917013952/repository</url>
+      <layout>p2</layout>
+   </repository>
+   <repository>
+      <id>eclipse</id>
+      <url>http://download.eclipse.org/eclipse/updates/3.8/R-3.8.1-201209141540</url>
+      <layout>p2</layout>
+   </repository>
 	</repositories>
+
+  <profiles>
+    <profile>
+      <id>ar</id>
+      <properties>
+        <p2repo-url>http://192.168.15.7/p2repo/</p2repo-url>
+      </properties>
+    </profile>
+    <profile>
+      <id>sg</id>
+      <properties>
+        <p2repo-url>http://intaliosg.local/p2repo/</p2repo-url>
+      </properties>
+    </profile>
+  </profiles>
 
 	<dependencies>
 	<dependency>
@@ -220,21 +226,106 @@
 		<version>${jetty-version}</version>
 		<classifier>sources</classifier>
 	</dependency>
-	</dependencies>
+</dependencies>
 
-	<profiles>
-		<profile>
-			<id>ar</id>
-			<properties>
-				<p2repo-url>http://192.168.15.7/p2repo/</p2repo-url>
-			</properties>
-		</profile>
-		<profile>
-			<id>sg</id>
-			<properties>
-				<p2repo-url>http://intaliosg.local/p2repo/</p2repo-url>
-			</properties>
-		</profile>
-	</profiles>
+<build>
+  <plugins>
+    <plugin>
+      <groupId>org.eclipse.tycho</groupId>
+      <artifactId>tycho-maven-plugin</artifactId>
+      <version>${tycho-version}</version>
+      <extensions>true</extensions>
+    </plugin>
+    <plugin>
+      <groupId>org.eclipse.tycho</groupId>
+      <artifactId>tycho-packaging-plugin</artifactId>
+      <version>${tycho-version}</version>
+      <configuration>
+        <includeSources>true</includeSources>
+      </configuration>
+    </plugin>
+    <plugin>
+      <groupId>org.eclipse.tycho</groupId>
+      <artifactId>target-platform-configuration</artifactId>
+      <version>${tycho-version}</version>
+      <configuration>
+        <resolver>p2</resolver>
+        <pomDependencies>consider</pomDependencies>
+        <environments>
+          <environment>
+            <os>linux</os>
+            <ws>gtk</ws>
+            <arch>x86_64</arch>
+          </environment>
+          <environment>
+            <os>win32</os>
+            <ws>win32</ws>
+            <arch>x86_64</arch>
+          </environment>
+          <environment>
+            <os>macosx</os>
+            <ws>cocoa</ws>
+            <arch>x86_64</arch>
+          </environment>
+        </environments>
+      </configuration>
+    </plugin>
+    <plugin>
+      <groupId>org.eclipse.tycho</groupId>
+      <artifactId>tycho-source-plugin</artifactId>
+      <version>${tycho-version}</version>
+      <executions>
+        <execution>
+          <id>plugin-source</id>
+          <goals>
+            <goal>plugin-source</goal>
+          </goals>
+        </execution>
+      </executions>
+    </plugin>
+  </plugins>
+  <pluginManagement>
+     <plugins>
+        <plugin>
+            <groupId>org.eclipse.tycho</groupId>
+            <artifactId>tycho-p2-publisher</artifactId>
+            <version>${tycho-version}</version>
+            <configuration>
+              <compress>true</compress>
+            </configuration>
+        </plugin>
+         <plugin>
+           <groupId>org.eclipse.tycho</groupId>
+           <artifactId>tycho-compiler-plugin</artifactId>
+           <version>${tycho-version}</version>
+           <configuration>
+             <encoding>UTF-8</encoding>
+           </configuration>
+         </plugin>
+         <plugin>
+           <groupId>org.apache.maven.plugins</groupId>
+           <artifactId>maven-deploy-plugin</artifactId>
+           <version>2.7</version>
+         </plugin>
+         <plugin>
+           <groupId>org.apache.maven.plugins</groupId>
+           <artifactId>maven-install-plugin</artifactId>
+           <version>2.4</version>
+         </plugin>
+      </plugins>
+    </pluginManagement>
+    <extensions>
+        <extension>
+            <groupId>org.apache.maven.wagon</groupId>
+            <artifactId>wagon-ftp</artifactId>
+            <version>2.2</version>
+        </extension>
+        <extension>
+            <groupId>org.apache.maven.wagon</groupId>
+            <artifactId>wagon-ssh-external</artifactId>
+            <version>2.2</version>
+        </extension>
+    </extensions>
+  </build>
 
 </project>
