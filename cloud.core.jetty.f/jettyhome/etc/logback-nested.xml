@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true">
+  
+        <property name="logfile" value="${catalina.home}/../logs/stdout.log"/>
+
+	<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%d %-5p [%logger{25}] [%X{user} %t] %m%n</pattern>
+		</encoder>
+	</appender>
+	<appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<!--See also http://logback.qos.ch/manual/appenders.html#RollingFileAppender -->
+		<!--file>${jetty.home}/logs/cloud.log</file-->
+                <file>${logfile}</file>
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<pattern>%d %-5p [%logger{25}] [%X{user} %t] %m%n</pattern>
+		</encoder>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>${catalina.home}/../logs/%d{yyyy_MM_dd}.cloud.%i.log</FileNamePattern>
+			<TimeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<MaxFileSize>10MB</MaxFileSize>
+			</TimeBasedFileNamingAndTriggeringPolicy>
+		</rollingPolicy>
+	</appender>
+
+	<!--
+		Root threshold left to ALL because the individual class levels should
+		filter this. If something starts complaining that we aren't expecting to
+		complain, then admins need to hear about it - ESPECIALLY on a production
+		system.
+	-->
+	<root level="${logback.root.level:-WARN}">
+		<appender-ref ref="FILE" />
+		<!-- Console logger disabled on production systems
+		<appender-ref ref="CONSOLE" /> -->
+	</root>
+	
+        <!--
+                On a production system, all serious messages from Intalio NEED to be
+                logged.
+        -->
+        <logger name="com.intalio.core" level="WARN" />
+		<logger name="com.intalio.core.packagemanager.bootstrap.VMConsoleWriter" level="ALL"/> <!-- must be able to know when the application has started at INFO -->
+        <logger name="cloud.core.seedlog" level="OFF" />
+        <logger name="com.intalio.lucene.support" level="ERROR" />
+
+        <logger name="com.intalio.core.data.api.EntityTransactionStatisticsManager" level="ERROR"/>
+        <!-- If Logback itself has any problems, admins need to hear about it -->
+        <logger name="ch.qos.logback.classic.Logger" level="DEBUG" />
+        
+        <!-- Generally speaking, we don't want to hear about other people's logs -->
+        <logger name="com.mchange" level="WARN" />
+        <logger name="httpclient" level="OFF" />
+        <logger name="net.sf" level="ERROR" />
+        <logger name="org.apache" level="ERROR" />
+        <logger name="org.eclipse.jetty" level="WARN" />
+        <logger name="org.eclipse.jetty.util.log" level="OFF" />
+        <logger name="org.hibernate" level="ERROR" />
+        <logger name="org.hibernate.SQL" level="OFF" />
+        <logger name="org.mortbay" level="WARN" />
+        <logger name="org.quartz" level="WARN" />
+        <logger name="org.springframework" level="WARN" />
+        <logger name="org.springmodules" level="ERROR" />
+</configuration>

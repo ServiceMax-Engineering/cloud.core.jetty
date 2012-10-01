@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Build-Jdk: 1.6.0_22
+Built-By: Intalio
+Version-Label: Summer '12 Beta 1
+Build-Version: 1.0.0.251
+Build-Version-Core: 1.0.0.459
+Created-By: Apache Maven
+Archiver-Version: Plexus Archiver

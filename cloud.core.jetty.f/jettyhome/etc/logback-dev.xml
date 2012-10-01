@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true">
+
+	<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%d %-5p [%logger{25}] [%X{user} %t] %m%n</pattern>
+		</encoder>
+	</appender>
+	<appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<!--See also http://logback.qos.ch/manual/appenders.html#RollingFileAppender -->
+		<file>${jetty.home}/logs/cloud.log</file>
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<pattern>%d %-5p [%logger{25}] [%X{user} %t] %m%n</pattern>
+		</encoder>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>${jetty.home}/logs/%d{yyyy_MM_dd}.cloud.%i.log</FileNamePattern>
+			<TimeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<MaxFileSize>10MB</MaxFileSize>
+			</TimeBasedFileNamingAndTriggeringPolicy>
+		</rollingPolicy>
+	</appender>
+
+	<!--
+		Root threshold left to ALL because the individual class levels should
+		filter this. If something starts complaining that we aren't expecting to
+		complain, then admins need to hear about it - ESPECIALLY on a production
+		system.
+	-->
+	<root level="ALL">
+		<appender-ref ref="FILE" />
+		<appender-ref ref="CONSOLE" />
+	</root>
+
+	<!--
+		On a development system, any messages produced by Intalio that aren't
+		specifically filtered out NEED to be logged.
+	-->
+	<logger name="com.intalio.core" level="ALL"/>
+	<logger name="com.intalio.core.packagemanager.bootstrap.VMConsoleWriter" level="ALL"/> <!-- must be able to know when the application has started at INFO -->
+	<logger name="com.intalio.lucene.support" level="WARN" />
+	
+	
+	<!--
+		INSTRUCTIONS:
+		When adding a logger for any Intalio class or package, you MUST be as
+		specific with the name as possible.  Individual classes are best.
+		Please put loggers in alphabetical order, and add a brief description
+		about what is logged at a given level for every logger here.  This will
+		help a lot with maintenance!
+	-->
+	<logger name="com.intalio.core.data.internal.EntitySqlParameterSource" level="DEBUG"/> <!-- TRACE / DEBUG -->
+	<logger name="com.intalio.core.data.internal.EntityTransaction" level="INFO"/>
+	<logger name="com.intalio.core.data.internal.QueryExecutorImpl" level="DEBUG"/>
+	<logger name="com.intalio.core.data.internal.SeedSqlParameterSource" level="INFO"/>
+	<logger name="com.intalio.core.data.internal.sql.EntitySqlParameterSource" level="DEBUG"/> <!-- TRACE / DEBUG -->
+	<logger name="com.intalio.core.data.internal.sql.SqlParameterSourceCreator" level="DEBUG"/> <!-- some queries as raw text at TRACE -->
+	<logger name="com.intalio.core.data.internal.utils.PGUtils" level="INFO"/>
+	
+	<logger name="com.intalio.core.packagemanager.bootstrap" level="DEBUG"/> <!-- DROP TABLE logs at TRACE -->
+	<logger name="com.intalio.core.packagemanager.export.ExportBatch" level="DEBUG"/>
+	<logger name="com.intalio.core.packagemanager.impl.PackageImpl" level="DEBUG"/><!-- Import Batches Detail-->
+	
+	<logger name="com.intalio.core.seed.internal.EntityRootDefinition" level="DEBUG"/> <!-- CREATE TABLE logs at DEBUG, malformed relationships at WARN -->
+	<logger name="com.intalio.core.seed.internal.EntityNamespaceDefinition" level="OFF"/> <!-- "no primary name for object" at ERROR -->
+	<logger name="com.intalio.core.seed.internal.EntityOperationDefinition" level="DEBUG"/> <!-- Route sorting details at TRACE  -->
+	<logger name="com.intalio.core.seed.test.EntityRootDefinitionTest" level="TRACE"/>
+	<logger name="com.intalio.core.seed.internal.EntityManagerDefinition" level="DEBUG"/>
+	<logger name="com.intalio.core.packagemanager.impl.BatchRecordImpl" level="DEBUG"/> <!-- because we know we have no target objects, thanks -->
+        <logger name="cloud.core.seedlog" level="DEBUG" /> <!-- logger for the seed log, to ignore traces of exceptions of missing columns. -->
+
+	<!-- If Logback itself has any problems, admins need to hear about it -->
+	<logger name="ch.qos.logback.classic.Logger" level="DEBUG" />
+	
+	<!-- Generally speaking, we don't want to hear about other people's logs -->
+	<logger name="com.mchange" level="WARN" />
+	<logger name="httpclient" level="OFF" />
+	<logger name="net.sf" level="ERROR" />
+	<logger name="org.apache" level="ERROR" />
+	<logger name="org.eclipse.jetty" level="WARN" />
+	<logger name="org.eclipse.jetty.util.log" level="OFF" />
+	<logger name="org.hibernate" level="ERROR" />
+	<logger name="org.hibernate.SQL" level="OFF" />
+	<logger name="org.mortbay" level="WARN" />
+	<logger name="org.quartz" level="WARN" />
+	<logger name="org.springframework" level="WARN" />
+	<logger name="org.springmodules" level="ERROR" />
+</configuration>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/cloud.core.jetty.f-1.0.0.qualifier.jar" id="cloud.core.jetty.f" version="1.0.0.qualifier">
+   </feature>
+</site>
