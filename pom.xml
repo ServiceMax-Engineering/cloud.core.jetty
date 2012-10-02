@@ -25,6 +25,9 @@
       <jetty-version>8.1.7.v20120910</jetty-version>
       <tycho-version>0.15.0</tycho-version>
       <tycho-extras-version>0.15.0</tycho-extras-version>
+      <!-- the commented forceContextQualifier is in fact the build number
+        It is required in this format for the release on hudson -->
+      <!--forceContextQualifier>133</forceContextQualifier-->
     </properties>
 
 	<repositories>
