@@ -1,0 +1,22 @@
+<repositories>
+    <repository>
+        <id>eclipse-orbit</id>
+        <layout>p2</layout>
+        <url>http://download.eclipse.org/tools/orbit/downloads/drops/S20120917013952/repository</url>
+        <version_built>
+           <artifact>unknown</artifact>
+           <version>unknown</version>
+           <built>unknown</built>
+        </version_built>
+    </repository>
+    <repository>
+        <id>eclipse</id>
+        <layout>p2</layout>
+        <url>http://download.eclipse.org/eclipse/updates/3.8/R-3.8.1-201209141540</url>
+        <version_built>
+           <artifact>unknown</artifact>
+           <version>unknown</version>
+           <built>unknown</built>
+        </version_built>
+    </repository>
+</repositories>
