@@ -17,6 +17,7 @@
 
     <modules>
       <module>cloud.core.jetty.f</module>
+      <module>cloud.core.jetty.dependencies.f</module>
       <module>cloud.core.jetty.source.f</module>
       <module>cloud.core.jetty.repo</module>
     </modules>
