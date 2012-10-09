@@ -6,18 +6,10 @@
     <version>1.0.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
-    <contributors>
-      <contributor>
-        <email>cheong@intalio.com</email>
-        <name>Wei Yih Cheong</name>
-        <organization>Intalio</organization>
-        <organizationUrl>http://www.intalio.com</organizationUrl>
-      </contributor>
-    </contributors>
-
     <modules>
       <module>cloud.core.jetty.f</module>
       <module>cloud.core.jetty.dependencies.f</module>
+      <module>cloud.core.jetty.dependencies.source.f</module>
       <module>cloud.core.jetty.source.f</module>
       <module>cloud.core.jetty.repo</module>
     </modules>
@@ -29,17 +21,24 @@
       <!-- the commented forceContextQualifier is in fact the build number
         It is required in this format for the release on hudson -->
       <!--forceContextQualifier>138</forceContextQualifier-->
+
+      <eclipse-orbit-version>S20120917013952</eclipse-orbit-version>
+      <eclipse-orbit-url>http://download.eclipse.org/tools/orbit/downloads/drops/${eclipse-orbit-version}/repository</eclipse-orbit-url>
+
+      <eclipse-platform-version>3.8/R-3.8.1-201209141540</eclipse-platform-version>
+      <eclipse-platform-url>http://download.eclipse.org/eclipse/updates/${eclipse-platform-version}</eclipse-platform-url>
+
     </properties>
 
 	<repositories>
    <repository>
       <id>eclipse-orbit</id>
-      <url>http://download.eclipse.org/tools/orbit/downloads/drops/S20120917013952/repository</url>
+      <url>${eclipse-orbit-url}</url>
       <layout>p2</layout>
    </repository>
    <repository>
-      <id>eclipse</id>
-      <url>http://download.eclipse.org/eclipse/updates/3.8/R-3.8.1-201209141540</url>
+      <id>eclipse-platform</id>
+      <url>${eclipse-platform-url}</url>
       <layout>p2</layout>
    </repository>
 	</repositories>
@@ -260,16 +259,6 @@
           <environment>
             <os>linux</os>
             <ws>gtk</ws>
-            <arch>x86_64</arch>
-          </environment>
-          <environment>
-            <os>win32</os>
-            <ws>win32</ws>
-            <arch>x86_64</arch>
-          </environment>
-          <environment>
-            <os>macosx</os>
-            <ws>cocoa</ws>
             <arch>x86_64</arch>
           </environment>
         </environments>

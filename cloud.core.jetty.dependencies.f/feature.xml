@@ -91,4 +91,14 @@
          version="0.0.0"
          unpack="false"/>
 
+    <!-- also needed
+    <plugin
+         id="org.apache.jasper.glassfish"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+       -->
+
 </feature>
