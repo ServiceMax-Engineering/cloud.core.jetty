@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.intalio.eclipse.jetty</groupId>
+    <groupId>com.intalio.cloud.jetty</groupId>
     <artifactId>jetty-equinox-bundles</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <modules>
-      <module>org.intalio.eclipse.jetty.feature</module>
-      <module>org.intalio.eclipse.jetty.source.feature</module>
-      <module>org.intalio.eclipse.jetty.repo</module>
+      <module>jetty-feature</module>
+      <module>jetty-source-feature</module>
+      <module>jetty-repo</module>
     </modules>
 
     <properties>
@@ -60,9 +60,9 @@
          <activeByDefault>true</activeByDefault>
       </activation>
       <modules>
-        <module>org.intalio.eclipse.equinox.feature</module>
-        <module>org.intalio.eclipse.equinox.source.feature</module>
-        <module>org.intalio.eclipse.equinox.repo</module>
+        <module>equinox-feature</module>
+        <module>equinox-source-feature</module>
+        <module>equinox-repo</module>
       </modules>
     </profile>
     <profile>

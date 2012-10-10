@@ -1,13 +1,13 @@
 <project>
   <modelVersion>4.0.0</modelVersion>
   <parent>
-      <groupId>com.intalio.eclipse.jetty</groupId>
+      <groupId>com.intalio.cloud.jetty</groupId>
       <artifactId>jetty-equinox-bundles</artifactId>
       <version>1.0.0-SNAPSHOT</version>
   </parent>
   <artifactId>jetty-repo</artifactId>
   <packaging>eclipse-repository</packaging>
-  <properties><repositorySuffix>jetty</repositorySuffix></properties>
+  <properties><repositoryOverrideSuffix>jetty</repositoryOverrideSuffix></properties>
   <build>
     <plugins>
       <plugin>
