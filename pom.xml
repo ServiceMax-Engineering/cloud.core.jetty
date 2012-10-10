@@ -56,6 +56,9 @@
     </profile>
     <profile>
       <id>equinox</id>
+      <activation>
+         <activeByDefault>true</activeByDefault>
+      </activation>
       <modules>
         <module>org.intalio.eclipse.equinox.feature</module>
         <module>org.intalio.eclipse.equinox.source.feature</module>
