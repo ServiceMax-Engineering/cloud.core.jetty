@@ -7,4 +7,7 @@
     </parent>
   <artifactId>equinox-repo</artifactId>
   <packaging>eclipse-repository</packaging>
+
+<properties><repositorySuffix>equinox</repositorySuffix></properties>
+
 </project>
