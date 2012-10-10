@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/__equinox.feature-1.0.0.qualifier.jar" id="__equinox.feature" version="1.0.0.qualifier"/>
+   <feature url="features/__equinox.source.feature-1.0.0.qualifier.jar" id="__equinox.feature" version="1.0.0.qualifier"/>
+</site>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="cloud.core.jetty.dependencies.f"
+      id="__equinox.source.feature"
       label="%featureName"
       version="1.0.0.qualifier">
 
@@ -16,128 +16,166 @@
       %license
    </license>
 
-   <requires>
-      <include feature="org.eclipse.equinox.core.feature" version="0.0.0"/>
-      <include feature="org.eclipse.equinox.p2.core.feature" version="0.0.0"/>
-   </requires>
-
    <plugin
-         id="javax.servlet"
+         id="javax.servlet.source"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="javax.annotation"
+         id="javax.annotation.source"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.objectweb.asm"
+         id="org.objectweb.asm.source"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.junit"
+         id="org.junit.source"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.hamcrest.core"
+         id="org.hamcrest.core.source"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="javax.activation"
+         id="javax.activation.source"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="javax.mail.glassfish"
+         id="javax.mail.glassfish.source"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="javax.transaction"
+         id="javax.transaction.source"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="javax.security.auth.message"
+         id="javax.security.auth.message.source"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.eclipse.equinox.http.servlet"
+         id="org.eclipse.equinox.http.servlet.source"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
     <!-- also needed later -->
-       <plugin
-         id="com.sun.el"
+    <plugin
+         id="com.sun.el.source"
          download-size="0"
          install-size="0"
          version="2.2.0"
          unpack="false"/>
 
    <plugin
-         id="javax.el"
+         id="javax.el.source"
          download-size="0"
          install-size="0"
          version="2.2.0"
          unpack="false"/>
 
    <plugin
-         id="javax.servlet.jsp"
+         id="javax.servlet.jsp.source"
          download-size="0"
          install-size="0"
          version="2.2.0"
          unpack="false"/>
 
    <plugin
-         id="javax.servlet.jsp.jstl"
+         id="javax.servlet.jsp.jstl.source"
          download-size="0"
          install-size="0"
          version="1.2.0"
          unpack="false"/>
 
    <plugin
-         id="org.apache.jasper.glassfish"
+         id="org.apache.jasper.glassfish.source"
          download-size="0"
          install-size="0"
          version="2.2.2"
          unpack="false"/>
 
    <plugin
-         id="org.apache.taglibs.standard.glassfish"
+         id="org.apache.taglibs.standard.glassfish.source"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.eclipse.jdt.core.compiler.batch"
+         id="org.eclipse.jdt.core.compiler.batch.source"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
+
+   <plugin
+         id="org.eclipse.core.runtime.source"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+  <plugin
+         id="org.eclipse.core.filesystem.source"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.core.resources.source"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.core.expressions.source"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.core.variables.source"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ant.core.source"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+
 </feature>

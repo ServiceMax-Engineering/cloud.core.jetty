@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="cloud.core.jetty.f"
+      id="org.intalio.eclipse.jetty.feature"
       label="%featureName"
       version="1.0.0.qualifier">
 
@@ -24,6 +24,11 @@
       <import plugin="javax.mail.glassfish" version="0.0.0"/>
       <import plugin="javax.transaction" version="0.0.0"/>
       <import plugin="javax.security.auth.message" version="0.0.0"/>
+
+      <import feature="org.eclipse.equinox.core.feature" version="0.0.0"/>
+      <import feature="org.eclipse.equinox.p2.core.feature" version="0.0.0"/>
+      <import feature="org.eclipse.equinox.executable" version="0.0.0"/>
+
    </requires>
 
    <plugin

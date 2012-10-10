@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.intalio.cloud.jetty</groupId>
-    <artifactId>jetty-bundles</artifactId>
+    <groupId>com.intalio.eclipse.jetty</groupId>
+    <artifactId>jetty-equinox-bundles</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <modules>
-      <module>cloud.core.jetty.f</module>
-      <module>cloud.core.jetty.dependencies.f</module>
-      <module>cloud.core.jetty.dependencies.source.f</module>
-      <module>cloud.core.jetty.source.f</module>
-      <module>cloud.core.jetty.repo</module>
+      <module>org.intalio.eclipse.jetty.feature</module>
+      <module>org.intalio.eclipse.jetty.source.feature</module>
+      <module>org.intalio.eclipse.jetty.repo</module>
     </modules>
 
     <properties>
@@ -54,6 +52,20 @@
       <id>sg</id>
       <properties>
         <p2repo-url>http://intaliosg.local/p2repo/</p2repo-url>
+      </properties>
+    </profile>
+    <profile>
+      <id>equinox</id>
+      <modules>
+        <module>org.intalio.eclipse.equinox.feature</module>
+        <module>org.intalio.eclipse.equinox.source.feature</module>
+        <module>org.intalio.eclipse.equinox.repo</module>
+      </modules>
+    </profile>
+    <profile>
+      <id>equinox-local</id>
+      <properties>
+        <eclipse-platform-url>file://${user.dir}/org.intalio.eclipse.equinox.repo/target/repository</eclipse-platform-url>
       </properties>
     </profile>
   </profiles>
@@ -106,6 +118,11 @@
 		<artifactId>jetty-plus</artifactId>
 		<version>${jetty-version}</version>
 	</dependency>
+  <dependency>
+    <groupId>org.eclipse.jetty</groupId>
+    <artifactId>jetty-security</artifactId>
+    <version>${jetty-version}</version>
+  </dependency>
 	<dependency>
 		<groupId>org.eclipse.jetty</groupId>
 		<artifactId>jetty-server</artifactId>
@@ -194,6 +211,12 @@
 		<version>${jetty-version}</version>
 		<classifier>sources</classifier>
 	</dependency>
+  <dependency>
+    <groupId>org.eclipse.jetty</groupId>
+    <artifactId>jetty-security</artifactId>
+    <version>${jetty-version}</version>
+    <classifier>sources</classifier>
+  </dependency>
 	<dependency>
 		<groupId>org.eclipse.jetty</groupId>
 		<artifactId>jetty-server</artifactId>
@@ -259,6 +282,31 @@
           <environment>
             <os>linux</os>
             <ws>gtk</ws>
+            <arch>x86</arch>
+          </environment>
+          <environment>
+            <os>linux</os>
+            <ws>gtk</ws>
+            <arch>x86_64</arch>
+          </environment>
+          <environment>
+            <os>win32</os>
+            <ws>win32</ws>
+            <arch>x86</arch>
+          </environment>
+          <environment>
+            <os>win32</os>
+            <ws>win32</ws>
+            <arch>x86_64</arch>
+          </environment>
+          <environment>
+            <os>macosx</os>
+            <ws>cocoa</ws>
+            <arch>x86</arch>
+          </environment>
+          <environment>
+            <os>macosx</os>
+            <ws>cocoa</ws>
             <arch>x86_64</arch>
           </environment>
         </environments>

@@ -1,0 +1,10 @@
+<project>
+  <modelVersion>4.0.0</modelVersion>
+    <parent>
+      <groupId>com.intalio.eclipse.jetty</groupId>
+      <artifactId>jetty-equinox-bundles</artifactId>
+      <version>1.0.0-SNAPSHOT</version>
+    </parent>
+  <artifactId>equinox-repo</artifactId>
+  <packaging>eclipse-repository</packaging>
+</project>

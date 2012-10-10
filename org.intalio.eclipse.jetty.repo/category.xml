@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/org.intalio.eclipse.jetty.feature-1.0.0.qualifier.jar" id="org.intalio.eclipse.jetty.feature" version="1.0.0.qualifier"/>
+   <feature url="features/org.intalio.eclipse.jetty.source.feature-1.0.0.qualifier.jar" id="org.intalio.eclipse.jetty.source.feature" version="1.0.0.qualifier"/>
+</site>

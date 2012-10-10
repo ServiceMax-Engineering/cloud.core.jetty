@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="cloud.core.jetty.source.f"
+      id="__equinox.feature"
       label="%featureName"
       version="1.0.0.qualifier">
 
@@ -16,126 +16,166 @@
       %license
    </license>
 
-   <requires>
-      <import plugin="javax.servlet" version="0.0.0"/>
-      <import plugin="javax.annotation" version="0.0.0"/>
-      <import plugin="org.objectweb.asm" version="0.0.0"/>
-      <import plugin="javax.activation" version="0.0.0"/>
-      <import plugin="javax.mail.glassfish" version="0.0.0"/>
-      <import plugin="javax.transaction" version="0.0.0"/>
-      <import plugin="javax.security.auth.message" version="0.0.0"/>
-   </requires>
-
    <plugin
-         id="org.eclipse.jetty.annotations.source"
+         id="javax.servlet"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.eclipse.jetty.client.source"
+         id="javax.annotation"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.eclipse.jetty.continuation.source"
+         id="org.objectweb.asm"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.eclipse.jetty.deploy.source"
+         id="org.junit"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.eclipse.jetty.http.source"
+         id="org.hamcrest.core"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.eclipse.jetty.io.source"
+         id="javax.activation"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.eclipse.jetty.osgi.boot.source"
+         id="javax.mail.glassfish"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.eclipse.jetty.osgi.httpservice.source"
+         id="javax.transaction"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.eclipse.jetty.plus.source"
+         id="javax.security.auth.message"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.eclipse.jetty.security.source"
+         id="org.eclipse.equinox.http.servlet"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+    <!-- also needed later -->
+    <plugin
+         id="com.sun.el"
+         download-size="0"
+         install-size="0"
+         version="2.2.0"
+         unpack="false"/>
+
+   <plugin
+         id="javax.el"
+         download-size="0"
+         install-size="0"
+         version="2.2.0"
+         unpack="false"/>
+
+   <plugin
+         id="javax.servlet.jsp"
+         download-size="0"
+         install-size="0"
+         version="2.2.0"
+         unpack="false"/>
+
+   <plugin
+         id="javax.servlet.jsp.jstl"
+         download-size="0"
+         install-size="0"
+         version="1.2.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.apache.jasper.glassfish"
+         download-size="0"
+         install-size="0"
+         version="2.2.2"
+         unpack="false"/>
+
+   <plugin
+         id="org.apache.taglibs.standard.glassfish"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.eclipse.jetty.server.source"
+         id="org.eclipse.jdt.core.compiler.batch"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.eclipse.jetty.servlet.source"
+         id="org.eclipse.core.runtime"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+  <plugin
+         id="org.eclipse.core.filesystem"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.eclipse.jetty.servlets.source"
+         id="org.eclipse.core.resources"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.eclipse.jetty.util.source"
+         id="org.eclipse.core.expressions"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.eclipse.jetty.webapp.source"
+         id="org.eclipse.core.variables"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.eclipse.jetty.xml.source"
+         id="org.eclipse.ant.core"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
+
 
 </feature>

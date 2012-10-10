@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?pde version="3.5"?>
+
+<product name="__equinox" uid="__equinox"
+ version="1.0.0.qualifier" useFeatures="true" includeLaunchers="true">
+
+   <configIni use="default">
+   </configIni>
+
+   <launcherArgs>
+       <programArgs>-console 8023</programArgs>
+       <vmArgsMac>-XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts</vmArgsMac>
+       <vmArgs>-XX:MaxPermSize=384m -Xms96m -Xmx2048m</vmArgs>
+    </launcherArgs>
+
+    <windowImages/>
+
+    <launcher name="cloud">
+       <solaris/>
+       <win useIco="false">
+          <bmp/>
+       </win>
+    </launcher>
+
+    <vm>
+    </vm>
+
+    <features>
+      <!-- Place here the features that need to be republished in this repository -->
+        <feature id="org.eclipse.equinox.core.feature" version="0.0.0"/>
+        <feature id="org.eclipse.equinox.p2.core.feature" version="0.0.0"/>
+        <feature id="org.eclipse.equinox.executable" version="0.0.0"/>
+     </features>
+
+     <configurations>
+        <plugin id="org.eclipse.equinox.common" autoStart="true" startLevel="2" />
+        <plugin id="org.eclipse.equinox.ds" autoStart="true" startLevel="2" />
+        <plugin id="org.eclipse.equinox.simpleconfigurator" autoStart="true" startLevel="1" />
+        <plugin id="org.eclipse.equinox.simpleconfigurator.manipulator" autoStart="true" startLevel="3" />
+        <plugin id="org.eclipse.equinox.frameworkadmin.equinox" autoStart="true" startLevel="3" />
+        <plugin id="org.springframework.osgi.extender" autoStart="true" startLevel="3" />
+        <property name="osgi.startLevel" value="100" />
+        <property name="java.awt.headless" value="true" />
+        <property name="osgi.requiredJavaVersion" value="1.6.0"/>
+        <property name="eclipse.ignoreApp" value="true"/>
+        <property name="osgi.noShutdown" value="true"/>
+     </configurations>
+
+  </product>
+
