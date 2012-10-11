@@ -10,14 +10,14 @@ Configuration files inside ${jetty.home}/etc
 - Equinox: pulled from the eclispe-platform repository on eclipse.org
 - Servlet Dependencies: pulled from eclipse-orbit repository on eclipse.org
 
+# Dual-License: ASL-20 and Eclipse.
+
 # Build
 
-    mvn clean package
+    mvn clean package -Pjetty
 
 The generated repository is inside org.intalio.eclipse.jetty.repo/target/repository
 The generated product assembly is inside cloud.core.jetty.repo/target/; it is cross-platform.
-
-# Dual-Licensed: ASL-20 and Eclipse.
 
 # Equinox and Eclipse Orbit repository build
 
@@ -31,6 +31,6 @@ We use it as a drop-in replacements for eclipse-platform and eclipse-orbit for o
 
 You can test that the equinox's repository is sufficient to build the jetty core product by executing:
 
-    mvn clean package -Pequinox && mvn clean package -Pequinox-local
+    mvn clean -Pequinox -Pjetty && mvn package -Pequinox && mvn package -Pjetty-with-local-equinox
 
-The second build will use the locally built repo to rebuild jetty.
+The last build will use the locally built repo to build jetty.
