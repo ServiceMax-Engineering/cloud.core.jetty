@@ -58,6 +58,17 @@
         <module>jetty-repo</module>
       </modules>
     </profile>
+    <profile>
+      <id>assemble-jetty-with-local-repos</id>
+      <!-- Assume jetty and equinox repos were built locally -->
+      <properties>
+        <eclipse-platform-url>file://${user.dir}/equinox-repo/target/repository</eclipse-platform-url>
+        <eclipse-orbit-url>file://${user.dir}/jetty-repo/target/repository</eclipse-orbit-url>
+      </properties>
+      <modules>
+        <module>jetty-assembly</module>
+      </modules>
+    </profile>
 
     <profile>
       <id>ar</id>
