@@ -8,7 +8,7 @@
 
     <modules>
       <module>jetty-feature</module>
-      <module>jetty-source-feature</module>
+      <module>jetty-feature-source</module>
       <module>jetty-repo</module>
     </modules>
 
@@ -61,7 +61,7 @@
       </activation>
       <modules>
         <module>equinox-feature</module>
-        <module>equinox-source-feature</module>
+        <module>equinox-feature-source</module>
         <module>equinox-repo</module>
       </modules>
     </profile>
