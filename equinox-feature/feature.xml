@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="__equinox.feature"
+      id="__equinox_orbit.feature"
       label="%featureName"
       version="1.0.0.qualifier">
 
@@ -16,6 +16,7 @@
       %license
    </license>
 
+   <!-- various orbit dependencies. -->
    <plugin
          id="javax.servlet"
          download-size="0"
@@ -131,40 +132,6 @@
 
    <plugin
          id="org.eclipse.jdt.core.compiler.batch"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.eclipse.core.runtime"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-  <plugin
-         id="org.eclipse.core.filesystem"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.eclipse.core.resources"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.eclipse.core.expressions"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.eclipse.core.variables"
          download-size="0"
          install-size="0"
          version="0.0.0"
