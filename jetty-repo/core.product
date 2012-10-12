@@ -50,6 +50,8 @@
         <property name="osgi.noShutdown" value="true"/>
         <property name="jetty.home" value="."/>
         <property name="logback.configurationFile" value="./etc/logback.xml"/>
+        <!-- Enable the native OSGi console. necessary in equinox-3.8 -->
+        <property name="osgi.console.enable.builtin" value="true"/>
      </configurations>
 
   </product>
