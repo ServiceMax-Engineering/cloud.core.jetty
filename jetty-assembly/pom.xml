@@ -1,7 +1,7 @@
 <project>
   <modelVersion>4.0.0</modelVersion>
   <parent>
-      <groupId>com.intalio.cloud.jetty</groupId>
+      <groupId>org.intalio.eclipse.jetty</groupId>
       <artifactId>jetty-equinox-bundles</artifactId>
       <version>1.0.0-SNAPSHOT</version>
   </parent>
