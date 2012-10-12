@@ -3,6 +3,6 @@
 
 <target name="Core Target Platform">
 <locations>
-<location path="${workspace_loc:Core Target Platform}" type="Profile"/>
+<location path="${project_loc}" type="Profile"/>
 </locations>
 </target>
