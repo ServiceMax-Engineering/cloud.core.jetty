@@ -2,4 +2,6 @@
 <site>
    <feature id="org.intalio.eclipse.jetty.feature" version="0.0.0"/>
    <feature id="org.intalio.eclipse.jetty.feature.source" version="0.0.0"/>
+   <feature id="org.intalio.eclipse.jetty.jsp.feature" version="0.0.0"/>
+   <feature id="org.intalio.eclipse.jetty.jsp.feature.source" version="0.0.0"/>
 </site>
