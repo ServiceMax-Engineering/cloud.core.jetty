@@ -113,6 +113,11 @@
 		<artifactId>jetty-httpservice</artifactId>
 		<version>${jetty-version}</version>
 	</dependency>
+	<dependency>
+		<groupId>org.eclipse.jetty.osgi</groupId>
+		<artifactId>jetty-osgi-boot-jsp</artifactId>
+		<version>${jetty-version}</version>
+	</dependency>
 
 	<!-- standard jetty artifacts -->
 	<dependency>
@@ -196,6 +201,12 @@
 	<dependency>
 		<groupId>org.eclipse.jetty.osgi</groupId>
 		<artifactId>jetty-httpservice</artifactId>
+		<version>${jetty-version}</version>
+		<classifier>sources</classifier>
+	</dependency>
+	<dependency>
+		<groupId>org.eclipse.jetty.osgi</groupId>
+		<artifactId>jetty-osgi-boot-jsp</artifactId>
 		<version>${jetty-version}</version>
 		<classifier>sources</classifier>
 	</dependency>

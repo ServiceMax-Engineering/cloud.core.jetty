@@ -17,6 +17,13 @@
    </license>
 
    <plugin
+         id="org.eclipse.jetty.osgi.boot.jsp"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
          id="javax.servlet.jsp"
          download-size="0"
          install-size="0"
