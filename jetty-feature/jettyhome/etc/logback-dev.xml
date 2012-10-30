@@ -16,6 +16,7 @@
 			<FileNamePattern>${jetty.home}/logs/%d{yyyy_MM_dd}.cloud.%i.log</FileNamePattern>
 			<TimeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
 				<MaxFileSize>10MB</MaxFileSize>
+				<maxHistory>20</maxHistory>
 			</TimeBasedFileNamingAndTriggeringPolicy>
 		</rollingPolicy>
 	</appender>
@@ -38,8 +39,8 @@
 	<logger name="com.intalio.core" level="ALL"/>
 	<logger name="com.intalio.core.packagemanager.bootstrap.VMConsoleWriter" level="ALL"/> <!-- must be able to know when the application has started at INFO -->
 	<logger name="com.intalio.lucene.support" level="WARN" />
-	
-	
+
+
 	<!--
 		INSTRUCTIONS:
 		When adding a logger for any Intalio class or package, you MUST be as
@@ -55,11 +56,11 @@
 	<logger name="com.intalio.core.data.internal.sql.EntitySqlParameterSource" level="DEBUG"/> <!-- TRACE / DEBUG -->
 	<logger name="com.intalio.core.data.internal.sql.SqlParameterSourceCreator" level="DEBUG"/> <!-- some queries as raw text at TRACE -->
 	<logger name="com.intalio.core.data.internal.utils.PGUtils" level="INFO"/>
-	
+
 	<logger name="com.intalio.core.packagemanager.bootstrap" level="DEBUG"/> <!-- DROP TABLE logs at TRACE -->
 	<logger name="com.intalio.core.packagemanager.export.ExportBatch" level="DEBUG"/>
 	<logger name="com.intalio.core.packagemanager.impl.PackageImpl" level="DEBUG"/><!-- Import Batches Detail-->
-	
+
 	<logger name="com.intalio.core.seed.internal.EntityRootDefinition" level="DEBUG"/> <!-- CREATE TABLE logs at DEBUG, malformed relationships at WARN -->
 	<logger name="com.intalio.core.seed.internal.EntityNamespaceDefinition" level="OFF"/> <!-- "no primary name for object" at ERROR -->
 	<logger name="com.intalio.core.seed.internal.EntityOperationDefinition" level="DEBUG"/> <!-- Route sorting details at TRACE  -->
@@ -70,7 +71,7 @@
 
 	<!-- If Logback itself has any problems, admins need to hear about it -->
 	<logger name="ch.qos.logback.classic.Logger" level="DEBUG" />
-	
+
 	<!-- Generally speaking, we don't want to hear about other people's logs -->
 	<logger name="com.mchange" level="WARN" />
 	<logger name="httpclient" level="OFF" />
