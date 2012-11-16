@@ -190,6 +190,11 @@
 		<artifactId>jetty-xml</artifactId>
 		<version>${jetty-version}</version>
 	</dependency>
+	<dependency>
+		<groupId>org.eclipse.jetty</groupId>
+		<artifactId>jetty-jmx</artifactId>
+		<version>${jetty-version}</version>
+	</dependency>
 
     <!-- sources artifacts so that we can place them in the features -->
 	<dependency>
@@ -293,6 +298,12 @@
 	<dependency>
 		<groupId>org.eclipse.jetty</groupId>
 		<artifactId>jetty-xml</artifactId>
+		<version>${jetty-version}</version>
+		<classifier>sources</classifier>
+	</dependency>
+	<dependency>
+		<groupId>org.eclipse.jetty</groupId>
+		<artifactId>jetty-jmx</artifactId>
 		<version>${jetty-version}</version>
 		<classifier>sources</classifier>
 	</dependency>
