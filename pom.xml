@@ -90,6 +90,11 @@
 
   <repositories>
    <repository>
+      <id>cloud2-orbit</id>
+      <url>http://release.intalio.com/p2repo/com/intalio/cloud2/orbit/master/1.0.0.009/</url>
+      <layout>p2</layout>
+   </repository>
+   <repository>
       <id>eclipse-orbit</id>
       <url>${eclipse-orbit-url}</url>
       <layout>p2</layout>
