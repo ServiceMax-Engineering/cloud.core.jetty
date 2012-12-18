@@ -14,9 +14,9 @@
 		</encoder>
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
 			<FileNamePattern>${jetty.home}/logs/%d{yyyy_MM_dd}.cloud.%i.log</FileNamePattern>
+            <maxHistory>20</maxHistory>
 			<TimeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
 				<MaxFileSize>10MB</MaxFileSize>
-				<maxHistory>20</maxHistory>
 			</TimeBasedFileNamingAndTriggeringPolicy>
 		</rollingPolicy>
 	</appender>
