@@ -14,7 +14,7 @@
       It is required in this format for the release on hudson -->
     <!--forceContextQualifier>151</forceContextQualifier-->
 
-    <eclipse-orbit-version>S20130308121626</eclipse-orbit-version>
+    <eclipse-orbit-version>R20130517111416</eclipse-orbit-version>
     <eclipse-orbit-url>http://download.eclipse.org/tools/orbit/downloads/drops/${eclipse-orbit-version}/repository</eclipse-orbit-url>
 
     <eclipse-platform-version>3.8/R-3.8.1-201209141540</eclipse-platform-version>
