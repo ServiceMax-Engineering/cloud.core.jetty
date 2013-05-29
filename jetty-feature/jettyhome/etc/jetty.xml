@@ -1,29 +1,56 @@
 <?xml version="1.0"?>
-<!DOCTYPE Configure PUBLIC "-//Jetty//Configure//EN" "http://www.eclipse.org/jetty/configure.dtd">
+<!DOCTYPE Configure PUBLIC "-//Jetty//Configure//EN" "http://www.eclipse.org/jetty/configure_9_0.dtd">
 
 <!-- =============================================================== -->
-<!-- Configure the Jetty Server                                      -->
-<!--                                                                 -->
 <!-- Documentation of this file format can be found at:              -->
-<!-- http://docs.codehaus.org/display/JETTY/jetty.xml                -->
+<!-- http://wiki.eclipse.org/Jetty/Reference/jetty.xml_syntax        -->
 <!--                                                                 -->
+<!-- Additional configuration files are available in $JETTY_HOME/etc -->
+<!-- and can be mixed in. See start.ini file for the default         -->
+<!-- configuration files.                                            -->
+<!--                                                                 -->
+<!-- For a description of the configuration mechanism, see the       -->
+<!-- output of:                                                      -->
+<!--   java -jar start.jar -?                                        -->
 <!-- =============================================================== -->
 
-
+<!-- =============================================================== -->
+<!-- Configure a Jetty Server instance with an ID "Server"           -->
+<!-- Other configuration files may also configure the "Server"       -->
+<!-- ID, in which case they are adding configuration to the same     -->
+<!-- instance.  If other configuration have a different ID, they     -->
+<!-- will create and configure another instance of Jetty.            -->
+<!-- Consult the javadoc of o.e.j.server.Server for all              -->
+<!-- configuration that may be set here.                             -->
+<!-- =============================================================== -->
 <Configure id="Server" class="org.eclipse.jetty.server.Server">
 
     <!-- =========================================================== -->
-    <!-- Server Thread Pool                                          -->
+    <!-- Configure the Server Thread Pool.                           -->
+    <!-- The server holds a common thread pool which is used by      -->
+    <!-- default as the executor used by all connectors and servlet  -->
+    <!-- dispatches.                                                 -->
+    <!--                                                             -->
+    <!-- Configuring a fixed thread pool is vital to controlling the -->
+    <!-- maximal memory footprint of the server and is a key tuning  -->
+    <!-- parameter for tuning.  In an application that rarely blocks -->
+    <!-- then maximal threads may be close to the number of 5*CPUs.  -->
+    <!-- In an application that frequently blocks, then maximal      -->
+    <!-- threads should be set as high as possible given the memory  -->
+    <!-- available.                                                  -->
+    <!--                                                             -->
+    <!-- Consult the javadoc of o.e.j.util.thread.QueuedThreadPool   -->
+    <!-- for all configuration that may be set here.                 -->
     <!-- =========================================================== -->
     <Arg name="threadpool">
       <New id="threadpool" class="org.eclipse.jetty.util.thread.QueuedThreadPool">
-        <Arg name="minThreads" type="int">10</Arg>
-        <Arg name="maxThreads" type="int">200</Arg>
-        <Arg name="idleTimeout" type="int">60000</Arg>
+        <Arg name="minThreads" type="int"><Property name="threads.min" default="10"/></Arg>
+        <Arg name="maxThreads" type="int"><Property name="threads.max" default="200"/></Arg>
+        <Arg name="idleTimeout" type="int"><Property name="threads.timeout" default="60000"/></Arg>
         <Set name="detailedDump">false</Set>
       </New>
     </Arg>
-    
+
     <!-- =========================================================== -->
     <!-- Add shared Scheduler instance                               -->
     <!-- =========================================================== -->
@@ -64,9 +91,18 @@
       </Call>
       -->
     </New>
-    
+
+
     <!-- =========================================================== -->
-    <!-- Set handler Collection Structure                            -->
+    <!-- Set the default handler structure for the Server            -->
+    <!-- A handler collection is used to pass received requests to   -->
+    <!-- both the ContextHandlerCollection, which selects the next   -->
+    <!-- handler by context path and virtual host, and the           -->
+    <!-- DefaultHandler, which handles any requests not handled by   -->
+    <!-- the context handlers.                                       -->
+    <!-- Other handlers may be added to the "Handlers" collection,   -->
+    <!-- for example the jetty-requestlog.xml file adds the          -->
+    <!-- RequestLogHandler after the default handler                 -->
     <!-- =========================================================== -->
     <Set name="handler">
       <New id="Handlers" class="org.eclipse.jetty.server.handler.HandlerCollection">
@@ -75,45 +111,20 @@
            <Item>
              <New id="Contexts" class="org.eclipse.jetty.server.handler.ContextHandlerCollection"/>
            </Item>
-<!--           <Item>
+           <Item>
              <New id="DefaultHandler" class="org.eclipse.jetty.server.handler.DefaultHandler"/>
            </Item>
-           <Item>
-             <New id="RequestLog" class="org.eclipse.jetty.server.handler.RequestLogHandler"/>
-           </Item-->
          </Array>
         </Set>
       </New>
     </Set>
-
-
-  <!-- =========================================================== -->
-  <!-- Configurations for WebAppContexts                           -->
-  <!-- Sequence of configurations to enable Plus features:         -->
-  <!-- JNDI, jetty-env.xml etc.                                                   -->
-  <!-- =========================================================== -->
-    <Call name="setAttribute">
-      <Arg>org.eclipse.jetty.webapp.configuration</Arg>
-      <Arg>
-        <Array type="java.lang.String">
-          <Item>org.eclipse.jetty.webapp.WebInfConfiguration</Item>
-          <Item>org.eclipse.jetty.webapp.WebXmlConfiguration</Item>
-          <Item>org.eclipse.jetty.webapp.MetaInfConfiguration</Item>
-          <Item>org.eclipse.jetty.webapp.FragmentConfiguration</Item>
-          <!--Item>org.eclipse.jetty.plus.webapp.PlusConfiguration</Item>
-          <Item>org.eclipse.jetty.plus.webapp.EnvConfiguration</Item-->
-          <Item>org.eclipse.jetty.webapp.JettyWebXmlConfiguration</Item>
-          <Item>org.eclipse.jetty.webapp.TagLibConfiguration</Item>
-        </Array>
-      </Arg>
-    </Call>
 
     <!-- =========================================================== -->
     <!-- extra server options                                        -->
     <!-- =========================================================== -->
     <Set name="stopAtShutdown">true</Set>
     <Set name="stopTimeout">5000</Set>
-    <Set name="dumpAfterStart">false</Set>
-    <Set name="dumpBeforeStop">false</Set>
+    <Set name="dumpAfterStart"><Property name="jetty.dump.start" default="false"/></Set>
+    <Set name="dumpBeforeStop"><Property name="jetty.dump.stop" default="false"/></Set>
 
 </Configure>
