@@ -12,7 +12,7 @@
     <tycho-extras-version>0.15.0</tycho-extras-version>
     <!-- the commented forceContextQualifier is in fact the build number
       It is required in this format for the release on hudson -->
-    <!--forceContextQualifier>151</forceContextQualifier-->
+    <!--forceContextQualifier>152</forceContextQualifier-->
 
     <eclipse-orbit-version>R20130517111416</eclipse-orbit-version>
     <eclipse-orbit-url>http://download.eclipse.org/tools/orbit/downloads/drops/${eclipse-orbit-version}/repository</eclipse-orbit-url>
